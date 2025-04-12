@@ -1,0 +1,225 @@
+.hero {
+    background: url('bg2.webp') center center/cover no-repeat; /* Change this path to your image path */
+    height: 90vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+  }
+
+/* Menu Card Styling with Hover Effects */
+.card.menu-card {
+  background-color: #3E2723;
+  color: #F5EBDC;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card.menu-card img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card.menu-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-title {
+  color: #CBAE82;
+  transition: color 0.3s ease;
+}
+
+.card.menu-card:hover .card-title {
+  color: #D9853B;
+}
+
+.card-text {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.card.menu-card:hover .card-text {
+  opacity: 1;
+}
+
+/* Modal Styling */
+.modal-content {
+  background-color: #3E2723;
+  color: #F5EBDC;
+  border: none;
+  border-radius: 10px;
+}
+
+.modal-header {
+  background-color: #D9853B;
+  color: #2B2B2B;
+  border-bottom: 1px solid #B9AFA4;
+}
+
+.modal-body {
+  background-color: #3E2723;
+  border-radius: 10px;
+}
+
+.modal-footer {
+  background-color: #3E2723;
+  border-top: 1px solid #B9AFA4;
+  justify-content: center;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #2F1B0C;
+  color: #F5EBDC;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #3A2C25;
+  border-bottom: 2px solid #D9853B;
+}
+
+.navbar-brand, 
+.navbar-nav .nav-link {
+  color: #F5EBDC !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #CBAE82 !important;
+}
+
+/* About Section Styling */
+#about {
+  background-color: #333333;
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+  padding: 60px 0;
+}
+
+#about h2, 
+#about p {
+  color: #E8D8C3;
+}
+
+/* Menu Section Styling */
+#menu {
+  background-color: #262626;
+}
+
+/* Contact Section Styling */
+#contact {
+  background-color: #333333;
+  color: #E8D8C3;
+}
+
+/* Location Section (Map) Styling */
+#location {
+  background-color: #262626;
+}
+
+#location h2, #location p {
+  color: #E8D8C3;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #3A2C25;
+  color: #E8D8C3;
+  padding: 20px 0;
+  border-top: 1px solid #D9853B;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #A16C45;
+  border-color: #A16C45;
+}
+
+.btn-primary:hover {
+  background-color: #CBAE82;
+  border-color: #CBAE82;
+  color: #2F1B0C;
+}
+#menu h2 {
+  color: #2F1B0C; /* A rich dark coffee shade */
+}
+
+footer .fab {
+  transition: color 0.3s ease;
+}
+
+footer .fab:hover {
+  color: #CBAE82;
+}
+
+/* Quick Links Styling with Hover Effects */
+.quick-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: block;
+  padding: 5px 0;
+}
+
+.quick-link:hover {
+  color: #CBAE82; /* Highlight color on hover */
+  transform: translateX(5px); /* Slight shift to the right */
+}
+
+/* Optional: You can also apply a soft underline animation */
+.quick-link:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #CBAE82;
+  margin-top: 5px;
+}
+
+/* Review Carousel Styling */
+.carousel-inner {
+  display: center;
+  justify-content: center;
+}
+
+.carousel-item {
+  transition: transform 0.5s ease;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Hover effect to enlarge the card slightly */
+}
+
+/* Control button styling */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: #F5EBDC; /* Light color for control icons */
+}
+
+/* Button hover effect */
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
