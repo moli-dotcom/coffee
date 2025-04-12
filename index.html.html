@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr. Coffee Bean</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet"href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Mr. Coffee Bean</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+		<li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+	    <li class="nav-item"><a class="nav-link" href="#review">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Hero Section -->
+<section id="home" class="hero text-center">
+  <div class="container">
+    <h1>Premium Coffee Experience</h1>
+    <p class="lead">Brewed to Perfection, Served with Passion</p>
+    <a href="#menu" class="btn btn-primary btn-lg mt-3">View Menu</a>
+  </div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-5">
+  <div class="container text-center">
+    <h2>About Us</h2>
+    <p class="lead">At Mr. Coffee Bean, we’re passionate about brewing the best coffee in town.</p>
+    <p>
+      What started as a small neighborhood café in 2010 has blossomed into a cozy community hub
+      where coffee lovers, creatives, students, and remote workers gather. We were founded with a simple goal:
+      to bring people together over exceptional coffee and meaningful conversations.
+    </p>
+    <p>
+      Our beans are sourced directly from small-scale, sustainable farms around the globe—from the lush hills of Ethiopia to the rich valleys of Colombia.
+      Every batch is carefully roasted in-house to ensure peak flavor, aroma, and freshness. Whether you prefer a classic espresso or something bold and experimental,
+      our baristas craft each cup with care and precision.
+    </p>
+    <p>
+      But Mr. Coffee Bean is more than just great coffee. We believe in nurturing creativity and connection.
+      That’s why we host weekly events like live music nights, poetry slams, and barista workshops.
+      Our café walls proudly showcase art from local artists, and our space is designed to feel like a second home—with warm lighting,
+      comfy seating, and the soothing scent of freshly ground beans.
+    </p>
+    <p>
+      We also care deeply about our planet. All our takeaway cups and packaging are 100% compostable,
+      and we offer discounts to customers who bring reusable mugs. We're proud to be part of a movement that values sustainability, quality, and community.
+    </p>
+    <p>
+      So whether you're diving into your next novel, working on a passion project, or just grabbing your daily caffeine fix,
+      we invite you to relax and stay awhile. Welcome to Mr. Coffee Bean—where every cup tells a story.
+    </p>
+  </div>
+</section>
+
+<!-- Location Section -->
+<section id="location" class="py-5">
+  <div class="container text-center">
+    <h2 class="mb-4">Find Us</h2>
+    <p class="mb-4">Come visit us at 123 Brew Lane, Bean City, CoffeeLand</p>
+    <div id="map" style="height: 500px; border-radius: 12px;"></div>
+  </div>
+</section>
+<!-- Menu Section -->
+<section id="menu" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Menu</h2>
+    <div class="row g-4">
+
+      <!-- Latte -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#latteModal">
+          <img src="latte.jfif" class="card-img-top" alt="Latte">
+          <div class="card-body">
+            <h5 class="card-title">Latte</h5>
+            <p class="card-text">₱180 - Smooth and creamy with steamed milk.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Espresso -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#espressoModal">
+          <img src="Expresso.jfif" class="card-img-top" alt="Espresso">
+          <div class="card-body">
+            <h5 class="card-title">Espresso</h5>
+            <p class="card-text">₱120 - Strong and bold, a true classic.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Iced Coffee -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#icedCoffeeModal">
+          <img src="Iced Coffee.jfif" class="card-img-top" alt="Iced Coffee">
+          <div class="card-body">
+            <h5 class="card-title">Iced Coffee</h5>
+            <p class="card-text">₱160 - Refreshing and chilled to perfection.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cappuccino -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#cappuccinoModal">
+          <img src="Cappuccino.jfif" class="card-img-top" alt="Cappuccino">
+          <div class="card-body">
+            <h5 class="card-title">Cappuccino</h5>
+            <p class="card-text">₱180 - A perfect balance of espresso, milk, and foam.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mocha -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#mochaModal">
+          <img src="Mocha.jfif" class="card-img-top" alt="Mocha">
+          <div class="card-body">
+            <h5 class="card-title">Mocha</h5>
+            <p class="card-text">₱200 - Chocolate and coffee in perfect harmony.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cold Brew -->
+      <div class="col-md-4">
+        <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#coldBrewModal">
+          <img src="Cold Brew.jfif" class="card-img-top" alt="Cold Brew">
+          <div class="card-body">
+            <h5 class="card-title">Cold Brew</h5>
+            <p class="card-text">₱220 - Smooth, slow-brewed, and highly caffeinated.</p>
+          </div>
+        </div>
+      </div>
+
+<!-- Affogato -->
+<div class="col-md-4">
+  <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#affogatoModal">
+    <img src="Affogatto.jfif" class="card-img-top" alt="Affogato">
+    <div class="card-body">
+      <h5 class="card-title">Affogato</h5>
+      <p class="card-text">₱250 - A dessert-style coffee with vanilla ice cream.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Flat White -->
+<div class="col-md-4">
+  <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#flatWhiteModal">
+    <img src="Flat White.jfif" class="card-img-top" alt="Flat White">
+    <div class="card-body">
+      <h5 class="card-title">Flat White</h5>
+      <p class="card-text">₱180 - Smooth and velvety with a fine layer of foam.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Macchiato -->
+<div class="col-md-4">
+  <div class="card menu-card" data-bs-toggle="modal" data-bs-target="#macchiatoModal">
+    <img src="Macchiato.png" class="card-img-top" alt="Macchiato">
+    <div class="card-body">
+      <h5 class="card-title">Macchiato</h5>
+      <p class="card-text">₱130 - Bold espresso with a hint of frothy milk.</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Modal for Latte -->
+<div class="modal fade" id="latteModal" tabindex="-1" aria-labelledby="latteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="latteModalLabel">Latte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="latte.jfif" class="img-fluid mb-3" alt="Latte">
+        <p>$3.99 - Smooth and creamy with steamed milk. A delightful drink to start your day.</p>
+        <p><strong>Ingredients:</strong> Espresso, Steamed Milk, Foam</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for Espresso -->
+<div class="modal fade" id="espressoModal" tabindex="-1" aria-labelledby="espressoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="espressoModalLabel">Espresso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Expresso.jfif" class="img-fluid mb-3" alt="Espresso">
+        <p>$2.49 - Strong and bold, a true classic.</p>
+        <p><strong>Ingredients:</strong> Finely ground coffee beans, hot water</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Iced Coffee -->
+<div class="modal fade" id="icedCoffeeModal" tabindex="-1" aria-labelledby="icedCoffeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="icedCoffeeModalLabel">Iced Coffee</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Iced Coffee.jfif" class="img-fluid mb-3" alt="Iced Coffee">
+        <p>$3.49 - Refreshing and chilled to perfection.</p>
+        <p><strong>Ingredients:</strong> Brewed coffee, ice, optional cream or sweetener</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Cappuccino -->
+<div class="modal fade" id="cappuccinoModal" tabindex="-1" aria-labelledby="cappuccinoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cappuccinoModalLabel">Cappuccino</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Cappuccino.jfif" class="img-fluid mb-3" alt="Cappuccino">
+        <p>$3.99 - A perfect balance of espresso, milk, and foam.</p>
+        <p><strong>Ingredients:</strong> Espresso, steamed milk, milk foam</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Mocha -->
+<div class="modal fade" id="mochaModal" tabindex="-1" aria-labelledby="mochaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mochaModalLabel">Mocha</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Mocha.jfif" class="img-fluid mb-3" alt="Mocha">
+        <p>$4.29 - Chocolate and coffee in perfect harmony.</p>
+        <p><strong>Ingredients:</strong> Espresso, chocolate syrup, steamed milk, whipped cream</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Cold Brew -->
+<div class="modal fade" id="coldBrewModal" tabindex="-1" aria-labelledby="coldBrewModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="coldBrewModalLabel">Cold Brew</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Cold Brew.jfif" class="img-fluid mb-3" alt="Cold Brew">
+        <p>$3.99 - Smooth, slow-brewed, and highly caffeinated.</p>
+        <p><strong>Ingredients:</strong> Coarse-ground coffee, cold water, steeped for 12+ hours</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Affogato -->
+<div class="modal fade" id="affogatoModal" tabindex="-1" aria-labelledby="affogatoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="affogatoModalLabel">Affogato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Affogatto.jfif" class="img-fluid mb-3" alt="Affogato">
+        <p>$4.59 - A dessert-style coffee with vanilla ice cream.</p>
+        <p><strong>Ingredients:</strong> Vanilla ice cream, hot espresso shot</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Flat White -->
+<div class="modal fade" id="flatWhiteModal" tabindex="-1" aria-labelledby="flatWhiteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="flatWhiteModalLabel">Flat White</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Flat White.jfif" class="img-fluid mb-3" alt="Flat White">
+        <p>$3.79 - Smooth and velvety with a fine layer of foam.</p>
+        <p><strong>Ingredients:</strong> Espresso, microfoam milk</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Macchiato -->
+<div class="modal fade" id="macchiatoModal" tabindex="-1" aria-labelledby="macchiatoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="macchiatoModalLabel">Macchiato</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Macchiato.png" class="img-fluid mb-3" alt="Macchiato">
+        <p>$3.29 - Bold espresso with a hint of frothy milk.</p>
+        <p><strong>Ingredients:</strong> Espresso, foamed milk</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Repeat the Modal Structure for Espresso, Iced Coffee, Cappuccino, Mocha, and Cold Brew -->
+
+<!-- Carousel Section -->
+<section id="review" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5" style="color: #F5EBDC;">What Our Customers Are Saying</h2>
+    
+    <!-- Bootstrap Carousel -->
+    <div id="carouselReviews" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        
+        <!-- First Review -->
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Aaron Ayta</h5>
+                <p class="card-text">"Everything about this café screams comfort. I had the cappuccino, and it came with the most beautiful foam design. The atmosphere was calm and soothing."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Nathaniel Biagtan</h5>
+                <p class="card-text">"Espresso was bold and aromatic — exactly what I needed to wake up. The overall vibe is minimalist and clean, perfect for working or journaling. Plus, the staff were super friendly."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Nathan Manuel</h5>
+                <p class="card-text">"Their mocha is a chocolate lover’s dream. It’s decadent without being too sweet. I loved sitting by the window with a view of the street while warm sunlight streamed in. Pure comfort."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Noel Sison</h5>
+                <p class="card-text">"The latte here is perfection — smooth, creamy, and just the right balance of espresso and milk. The shop’s warm lighting and rustic wood interiors made it feel like a cozy escape from the city buzz."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Jesse Quiroz</h5>
+                <p class="card-text">"Tried their cold brew and it was so refreshing, especially on a hot afternoon. Loved the minimalist vibe of the café — white walls, plants, and soft acoustic music. Super chill"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Alexius Seth</h5>
+                <p class="card-text">"I had the affogato and wow — such a playful treat! The contrast of hot espresso and cold ice cream was amazing. The café had a quirky charm too, with vintage posters and comfy chairs."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Rodrigo Rivera</h5>
+                <p class="card-text">"Cappuccino was rich and velvety with a nice cocoa dusting on top. The ambiance is like a little European café — warm tones, rustic textures, and the smell of freshly baked pastries in the air."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Review -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem; background-color: #3E2723; color: #F5EBDC;">
+              <div class="card-body">
+                <h5 class="card-title">Mark Guarin</h5>
+                <p class="card-text">"This is my go-to place for a flat white. It’s always smooth, strong, and satisfying. The shop has this sleek modern design — black accents, clean counters, and soft lo-fi beats playing."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselReviews" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselReviews" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2>Contact Us</h2>
+        <p>123 Brew Lane, Bean City, CoffeeLand</p>
+        <p>Email: hello@mrcoffeebean.com | Phone: (123) 456-7890</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="contactForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" required placeholder="Your name">
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" required placeholder="name@example.com">
+              <div class="invalid-feedback">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" required placeholder="Subject">
+              <div class="invalid-feedback">Please enter a subject.</div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Your Message</label>
+              <textarea class="form-control" id="message" rows="5" required placeholder="Write your message here..."></textarea>
+              <div class="invalid-feedback">Please enter your message.</div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary px-4">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer class="text-center text-lg-start text-white pt-5 pb-4" style="background-color: #3E2723;">
+  <div class="container text-center text-md-start">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <h6 class="text-uppercase fw-bold">Mr. Coffee Bean</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #CBAE82; height: 2px"/>
+        <p>
+          Crafting premium coffee experiences with heart and heritage. Join us for a sip of something special.
+        </p>
+      </div>
+<!-- Quick Links -->
+<div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
+  <h6 class="text-uppercase fw-bold">Quick Links</h6>
+  <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #CBAE82; height: 2px"/>
+  <ul class="list-unstyled">
+  
+    <li>
+      <a href="#home" class="text-white quick-link">Home</a>
+    </li>
+    <li>
+      <a href="#about" class="text-white quick-link">About Us</a>
+    </li>
+    <li>
+      <a href="#menu" class="text-white quick-link">Menu</a>
+    </li>
+    <li>
+      <a href="#contact" class="text-white quick-link">Contact</a>
+    </li>
+  </ul>
+</div>
+
+
+      <!-- Contact -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <h6 class="text-uppercase fw-bold">Contact</h6>
+        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #CBAE82; height: 2px"/>
+        <p><i class="fas fa-home mr-3"></i> 123 Coffee Lane, Brewtown</p>
+        <p><i class="fas fa-envelope mr-3"></i> hello@mrcoffeebean.com</p>
+        <p><i class="fas fa-phone mr-3"></i> +1 (234) 567-8901</p>
+      </div>
+	  
+	  
+<!-- Social -->
+<div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
+  <h6 class="text-uppercase fw-bold">Follow Us</h6>
+  <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #CBAE82; height: 2px"/>
+  <div class="d-flex justify-content-start gap-3 ps-2">
+    <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+    <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+    <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: #2F1B0C;">
+    © 2025 Mr. Coffee Bean. All rights reserved.
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact Form Validation Script -->
+  <script>
+    (() => {
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          event.preventDefault();
+          alert("Thank you! Your message has been sent.");
+          form.reset();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+  </script>
+
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script>
+  const map = L.map('map').setView([40.7128, -74.0060], 13); // You can update to your actual coordinates
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  L.marker([40.7128, -74.0060])
+    .addTo(map)
+    .bindPopup('Mr. Coffee Bean<br>123 Brew Lane, Bean City')
+    .openPopup();
+</script>
+
+</body>
+</html>
